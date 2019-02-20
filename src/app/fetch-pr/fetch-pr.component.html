@@ -1,0 +1,74 @@
+<section class="pr-list">
+  <div class="count">
+    Open status PR: <b>{{ count }}</b>
+  </div>
+  <h3>New PR<sub>24時間以内</sub></h3>
+  <mat-accordion>
+    <!-- Fetch pr json data example: https://api.github.com/repos/ne-peer/deredorm/pulls?access_token=xxxxx&state=open -->
+    <mat-expansion-panel class="panel" *ngFor="let pr of newPr; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title">
+          {{ pr.head.repo.name }}　{{ slice(pr.title, 80) }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="info">
+        <span class="mg-right user">user: <img src="{{ pr.user.avatar_url }}" alt="avater" height="16"> {{ pr.user.login }}</span>
+        <span class="mg-right date">create: {{ pr.created_at | date:'yyyy/MM/dd':'+0900' }}</span>
+        <span class="mg-right status">status: <span class="status-open">{{ pr.state }}</span></span>
+        <a href="{{ pr.html_url }}" target="_blank" class="pr-link">View PR</a>
+      </div>
+      <mat-divider class="divider"></mat-divider>
+      <div>
+        <markdown class="markdown-body">
+          {{ pr.body }}
+        </markdown>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <h3>Recently PR<sub>1週間以内</sub></h3>
+  <mat-accordion>
+    <mat-expansion-panel class="panel" *ngFor="let pr of recentlyPr; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title">
+          {{ pr.head.repo.name }}　{{ slice(pr.title, 80) }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="info">
+        <span class="mg-right user">user: <img src="{{ pr.user.avatar_url }}" alt="avater" height="16"> {{ pr.user.login }}</span>
+        <span class="mg-right date">create: {{ pr.created_at | date:'yyyy/MM/dd':'+0900' }}</span>
+        <span class="mg-right status">status: <span class="status-open">{{ pr.state }}</span></span>
+        <a href="{{ pr.html_url }}" target="_blank" class="pr-link">View PR</a>
+      </div>
+      <mat-divider class="divider"></mat-divider>
+      <div>
+        <markdown class="markdown-body">
+          {{ pr.body }}
+        </markdown>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <h3>Old PR<sub>それ以上前</sub></h3>
+  <mat-accordion>
+    <mat-expansion-panel class="panel" *ngFor="let pr of oldPr; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title">
+          {{ pr.head.repo.name }}　{{ slice(pr.title, 80) }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="info">
+        <span class="mg-right user">user: <img src="{{ pr.user.avatar_url }}" alt="avater" height="16"> {{ pr.user.login }}</span>
+        <span class="mg-right date">create: {{ pr.created_at | date:'yyyy/MM/dd':'+0900' }}</span>
+        <span class="mg-right status">status: <span class="status-open">{{ pr.state }}</span></span>
+        <a href="{{ pr.html_url }}" target="_blank" class="pr-link">View PR</a>
+      </div>
+      <mat-divider class="divider"></mat-divider>
+      <div>
+        <markdown class="markdown-body">
+          {{ pr.body }}
+        </markdown>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>

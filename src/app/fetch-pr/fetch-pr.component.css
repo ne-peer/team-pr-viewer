@@ -1,0 +1,48 @@
+.count {
+    margin: 12px;
+}
+
+.pr-list {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #454d5d;
+}
+
+.panel {
+    background-color: #fff;
+}
+
+.title {
+    font-weight: bold;
+    padding: 4px;
+}
+
+sub {
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 9px;
+    vertical-align: middle;
+    color: #5755d9;
+}
+
+.divider {
+    margin: 20px 0px 20px 0px;
+}
+
+.pr-link {
+    font-weight: bold;
+}
+
+.info {
+    margin-bottom: 10px;
+}
+
+.mg-right {
+    margin-right: 30px;
+}
+
+.status-open {
+    color: #32b643;
+    font-weight: bold;
+}
